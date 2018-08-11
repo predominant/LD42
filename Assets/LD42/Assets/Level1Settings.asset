@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e870a37be7737e847b4ce4aaea42dc55, type: 3}
+  m_Name: Level1Settings
+  m_EditorClassIdentifier: 
+  ConveyorSpeed: 0.5
+  PackageSpawnInterval: 5
+  PackageSpawnSplay: 1
+  PackagePrefabs:
+  - {fileID: 1187417342187724, guid: 4cf9290ab961e3044b38863ae750b9b8, type: 2}
+  - {fileID: 1630084849842518, guid: 24941d12ca4a33148a6375bbc980ee9e, type: 2}
