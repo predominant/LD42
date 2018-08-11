@@ -64,7 +64,7 @@ namespace LD42
 
             this.TargetPackage.transform.parent = null;
             this.TargetPackage.GetComponent<Rigidbody>().isKinematic = false;
-            this.TargetPackage.GetComponent<BoxCollider>().enabled = true;
+            this.TargetPackage.GetComponent<Collider>().enabled = true;
         }
 
         private void Pickup()
@@ -75,7 +75,7 @@ namespace LD42
             this._carrying = true;
 
             this.TargetPackage.GetComponent<Rigidbody>().isKinematic = true;
-            this.TargetPackage.GetComponent<BoxCollider>().enabled = false;
+            this.TargetPackage.GetComponent<Collider>().enabled = false;
             this.TargetPackage.transform.parent = this.CarryPoint;
             this.TargetPackage.transform.localPosition = Vector3.zero;
         }

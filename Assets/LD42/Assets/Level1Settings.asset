@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Level1Settings
   m_EditorClassIdentifier: 
   ConveyorSpeed: 0.5
-  PackageSpawnInterval: 5
+  PackageSpawnInterval: 5.5
   PackageSpawnSplay: 1
   PackagePrefabs:
   - {fileID: 1187417342187724, guid: 4cf9290ab961e3044b38863ae750b9b8, type: 2}
@@ -24,5 +24,5 @@ MonoBehaviour:
   BombProbability: 0.1
   MaxBombTimer: 60
   MinBombTimer: 45
-  ScanFailProbability: 0.9
+  ScanFailProbability: 0.15
   ManualInspectionTime: 3

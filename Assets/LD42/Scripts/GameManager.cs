@@ -9,7 +9,8 @@ namespace LD42
 	public class GameManager : MonoBehaviour
 	{
 		public LevelSettings LevelSettings;
-		public List<GameObject> PackagePrefabs;
+
+		public List<PackageRequest> PackageRequests = new List<PackageRequest>();
 
 		public Color PackageColor()
 		{

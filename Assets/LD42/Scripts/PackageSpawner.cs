@@ -27,7 +27,8 @@ namespace LD42
 
 		private void SpawnPackage()
 		{
-			var prefab = this._gameManager.PackagePrefabs[Random.Range(0, this._gameManager.PackagePrefabs.Count)];
+			var index = Random.Range(0, this._gameManager.LevelSettings.PackagePrefabs.Count);
+			var prefab = this._gameManager.LevelSettings.PackagePrefabs[index];
 			GameObject.Instantiate(prefab, this.transform.position, this.transform.rotation);
 		}
 	}
