@@ -31,14 +31,14 @@ namespace LD42
 			this.Color = GameManager.PackageColor();
 		}
 
-		public void Scan()
+		public void Scan(bool manualScan = false)
 		{
-			if (this.HasBeenScanned)
+			if (this.HasBeenScanned && !manualScan)
 				return;
 
 			this.HasBeenScanned = true;
 
-			if (this.DidFailScan())
+			if (!manualScan && this.DidFailScan())
 				return;
 
 			// When a package is scanned, identify its color

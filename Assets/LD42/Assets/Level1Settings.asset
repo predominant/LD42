@@ -24,4 +24,5 @@ MonoBehaviour:
   BombProbability: 0.1
   MaxBombTimer: 60
   MinBombTimer: 45
-  ScanFailProbability: 0.3
+  ScanFailProbability: 0.9
+  ManualInspectionTime: 3
