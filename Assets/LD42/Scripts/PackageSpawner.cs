@@ -7,22 +7,20 @@ namespace LD42
 	public class PackageSpawner : MonoBehaviour
 	{
 		private GameManager _gameManager;
-		private float _interval;
-		private float _splay;
-
 		private void Start()
 		{
 			this._gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
-			this._interval = this._gameManager.LevelSettings.PackageSpawnInterval;
-			this._splay = this._gameManager.LevelSettings.PackageSpawnSplay;
 			this.StartCoroutine("SpawnPackages");
 		}
 
 		private IEnumerator SpawnPackages()
 		{
+			var interval = this._gameManager.LevelSettings.PackageSpawnInterval;
+			var splay = this._gameManager.LevelSettings.PackageSpawnSplay;
+
 			while (true)
 			{
-				yield return new WaitForSecondsRealtime(this._interval + (Random.Range(-this._splay, this._splay)));
+				yield return new WaitForSecondsRealtime(interval + (Random.Range(-splay, splay)));
 				this.SpawnPackage();
 			}
 		}

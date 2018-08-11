@@ -10,5 +10,10 @@ namespace LD42
 	{
 		public LevelSettings LevelSettings;
 		public List<GameObject> PackagePrefabs;
+
+		public Color PackageColor()
+		{
+			return this.LevelSettings.PackageColors[Random.Range(0, this.LevelSettings.PackageColors.Count)];
+		}
 	}
 }

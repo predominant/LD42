@@ -10,5 +10,9 @@ namespace LD42.ScriptableObjects
 		public float PackageSpawnInterval = 5f;
 		public float PackageSpawnSplay = 1f;
 		public List<GameObject> PackagePrefabs = new List<GameObject>();
+		public List<Color> PackageColors = new List<Color>();
+		public float BombProbability = 0.1f;
+		public int MaxBombTimer = 60;
+		public int MinBombTimer = 45;
 	}
 }

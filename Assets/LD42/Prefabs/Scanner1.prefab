@@ -39,6 +39,8 @@ GameObject:
   - component: {fileID: 65534596581899604}
   - component: {fileID: 65299996962321544}
   - component: {fileID: 114888395155785996}
+  - component: {fileID: 65099410745821594}
+  - component: {fileID: 65964541734059910}
   - component: {fileID: 65975951755510878}
   m_Layer: 0
   m_Name: Scanner1
@@ -53,14 +55,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627239060669092}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.00000058114523, z: -0, w: 1}
+  m_LocalPosition: {x: -7, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4874474663879456}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4874474663879456
 Transform:
   m_ObjectHideFlags: 1
@@ -89,7 +91,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: c6b174f062d7d62428708f29d42cb27f, type: 3}
+  - {fileID: 2100000, guid: d478ec48fadb0e5408c4ca08ef09c8a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,6 +118,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146146782247754}
   m_Mesh: {fileID: 4300000, guid: c6b174f062d7d62428708f29d42cb27f, type: 3}
+--- !u!65 &65099410745821594
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627239060669092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 1, z: 1}
+  m_Center: {x: 0.8, y: 1.5, z: 0}
 --- !u!65 &65299996962321544
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -140,6 +154,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!65 &65964541734059910
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627239060669092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 1, z: 1}
+  m_Center: {x: -0.8, y: 1.5, z: 0}
 --- !u!65 &65975951755510878
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -150,8 +176,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0.1, z: 1.2}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 1.8, y: 0.2, z: 1.2}
+  m_Center: {x: 0, y: 2.2, z: 0}
 --- !u!114 &114888395155785996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,4 +189,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e523d1d3a55574d9c065cd1cfc30d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1

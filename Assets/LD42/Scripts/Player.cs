@@ -6,12 +6,6 @@ namespace LD42
     public class Player : MonoBehaviour
     {
         [SerializeField]
-        private bool Debug = false;
-
-        [SerializeField]
-        private Text DebugText;
-
-        [SerializeField]
         private Transform CarryPoint;
 
         private bool _carrying = false;
@@ -23,8 +17,6 @@ namespace LD42
             set
             {
                 this._targetPackage = value;
-                if (this.Debug && this.DebugText != null)
-                    this.DebugText.text = string.Format("Carry Target: {0}", value.name);
             }
         }
 

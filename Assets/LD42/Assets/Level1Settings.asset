@@ -17,3 +17,10 @@ MonoBehaviour:
   PackagePrefabs:
   - {fileID: 1187417342187724, guid: 4cf9290ab961e3044b38863ae750b9b8, type: 2}
   - {fileID: 1630084849842518, guid: 24941d12ca4a33148a6375bbc980ee9e, type: 2}
+  PackageColors:
+  - {r: 0.9843138, g: 0.4156863, b: 0.2901961, a: 0}
+  - {r: 0.41960788, g: 0.68235296, b: 0.83921576, a: 0}
+  - {r: 0.8431373, g: 0.50980395, b: 0.627451, a: 0}
+  BombProbability: 0.9
+  MaxBombTimer: 60
+  MinBombTimer: 45
