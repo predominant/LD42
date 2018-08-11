@@ -12,6 +12,8 @@ namespace LD42
 
 		public bool IsBomb = false;
 
+		public bool HasBeenScanned = false;
+
 		public int BombTimer = 0;
 		private float BombTimeStarted = 0f;
 
@@ -31,6 +33,14 @@ namespace LD42
 
 		public void Scan()
 		{
+			if (this.HasBeenScanned)
+				return;
+
+			this.HasBeenScanned = true;
+
+			if (this.DidFailScan())
+				return;
+
 			// When a package is scanned, identify its color
 			var renderer = this.GetComponentInChildren<MeshRenderer>();
 			renderer.material.color = this.Color;
@@ -99,6 +109,11 @@ namespace LD42
 				p.GetComponent<Rigidbody>().AddExplosionForce(800f, this.transform.position, 200f);
 			}
 
+		}
+
+		private bool DidFailScan()
+		{
+			return Random.Range(0f, 1f) < GameManager.LevelSettings.ScanFailProbability;
 		}
 	}
 }

@@ -14,5 +14,6 @@ namespace LD42.ScriptableObjects
 		public float BombProbability = 0.1f;
 		public int MaxBombTimer = 60;
 		public int MinBombTimer = 45;
+		public float ScanFailProbability = 0.2f;
 	}
 }
