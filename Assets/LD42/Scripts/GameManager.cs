@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 using LD42.ScriptableObjects;
 using TMPro;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace LD42
 {
@@ -17,6 +19,7 @@ namespace LD42
 
 		public TextMeshProUGUI ScoreText;
 		public TextMeshProUGUI TimerText;
+		public GameObject GameOverPanel;
 
 		public List<PackageRequest> PackageRequests = new List<PackageRequest>();
 
@@ -29,7 +32,7 @@ namespace LD42
 			{"NotInspected", 0},
 		};
 
-		private int Score = 0;
+		public int Score = 0;
 
 		private float StartTime;
 
@@ -93,13 +96,21 @@ namespace LD42
 			foreach (Transform t in this.PackageRequestListPanel.transform)
 				GameObject.Destroy(t.gameObject);
 			
-			foreach (var r in this.PackageRequests)
+			try
 			{
-				var g = GameObject.Instantiate(this.PackageRequestPanelPrefab);
-				g.name = "Request - " + r.Type;
-				var rui = g.GetComponent<PackageRequestUI>();
-				rui.Setup(r);
-				g.transform.SetParent(this.PackageRequestListPanel.transform, false);
+				for (var i = 0; i < this.PackageRequests.Count; i++)
+				{
+					var r = this.PackageRequests[i];
+					var g = GameObject.Instantiate(this.PackageRequestPanelPrefab);
+					g.name = "Request - " + r.Type;
+					var rui = g.GetComponent<PackageRequestUI>();
+					rui.Setup(r);
+					g.transform.SetParent(this.PackageRequestListPanel.transform, false);
+				}
+			}
+			finally
+			{
+				// Nothing
 			}
 		}
 
@@ -128,7 +139,25 @@ namespace LD42
 					"{0}:{1:D2}",
 					(int)(remaining / 60f),
 					(int)(remaining % 60f));
+				
+				if (remaining <= 0f)
+				{
+					break;
+				}
 			}
+
+			this.GameOverPanel.SetActive(true);
+			GameObject.FindObjectOfType<ThirdPersonUserControl>().enabled = false;
+		}
+
+		public void RetryButton()
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+
+		public void MenuButton()
+		{
+			SceneManager.LoadScene("Menu");
 		}
 	}
 }
