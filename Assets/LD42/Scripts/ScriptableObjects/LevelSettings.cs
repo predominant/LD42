@@ -37,5 +37,15 @@ namespace LD42.ScriptableObjects
 		public float ExplosionForce = 900f;
 		public float ExplosionRadius = 200f;
 		public float ExplosionUpModifier = 2f;
+
+		[Header("Scan Colors")]
+		public Color SuccessScanColor = Color.green;
+		public Color FailScanColor = Color.red;
+
+		[Header("Sounds")]
+		public List<AudioClip> SuccessScanAudio;
+		public List<AudioClip> FailScanAudio;
+		public AudioClip DropAudio;
+		public AudioClip PickupAudio;
 	}
 }

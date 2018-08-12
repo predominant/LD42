@@ -20,8 +20,8 @@ namespace LD42
 
 			while (true)
 			{
-				yield return new WaitForSecondsRealtime(interval + (Random.Range(-splay, splay)));
 				this.SpawnPackage();
+				yield return new WaitForSecondsRealtime(interval + (Random.Range(-splay, splay)));
 			}
 		}
 

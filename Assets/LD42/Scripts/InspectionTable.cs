@@ -46,6 +46,10 @@ namespace LD42
 			if (c.gameObject.layer != LayerMask.NameToLayer("Package"))
 				return;
 
+			if (this._package == null)
+				return;
+				
+			this._package.IsBeingInspected = false;
 			this._package = null;
 
 			this.StopCoroutine("RunInspection");
@@ -55,6 +59,7 @@ namespace LD42
 
 		public void StartInspection()
 		{
+			this._package.IsBeingInspected = true;
 			this._inspectionRunning = true;
 			this.CounterText.gameObject.SetActive(true);
 			this.StartCoroutine("RunInspection");

@@ -8,6 +8,8 @@ namespace LD42
         [SerializeField]
         private Transform CarryPoint;
 
+        private static GameManager GameManager;
+
         private bool _carrying = false;
 
         private GameObject _targetPackage;
@@ -18,6 +20,11 @@ namespace LD42
             {
                 this._targetPackage = value;
             }
+        }
+
+        private void Start()
+        {
+            GameManager = GameObject.Find("Manager").GetComponent<GameManager>();
         }
 
         private void Update()
@@ -64,15 +71,17 @@ namespace LD42
 
             if (this.TargetPackage == null)
                 return;
-                
+
             this.TargetPackage.transform.parent = null;
             this.TargetPackage.GetComponent<Rigidbody>().isKinematic = false;
             this.TargetPackage.GetComponent<Collider>().enabled = true;
+
+            this.PlaySound(GameManager.LevelSettings.DropAudio);
         }
 
         private void Pickup()
         {
-            if (this._carrying || this.TargetPackage == null)
+            if (this._carrying || this.TargetPackage == null || this.TargetPackage.GetComponent<Package>().IsBeingInspected)
                 return; 
 
             this._carrying = true;
@@ -81,6 +90,14 @@ namespace LD42
             this.TargetPackage.GetComponent<Collider>().enabled = false;
             this.TargetPackage.transform.parent = this.CarryPoint;
             this.TargetPackage.transform.localPosition = Vector3.zero;
+
+            this.PlaySound(GameManager.LevelSettings.PickupAudio);
+        }
+
+        private void PlaySound(AudioClip c)
+        {
+            var source = this.GetComponent<AudioSource>();
+            source.PlayOneShot(c);
         }
     }
 }

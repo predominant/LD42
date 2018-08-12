@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e870a37be7737e847b4ce4aaea42dc55, type: 3}
+  m_Name: Level3Settings
+  m_EditorClassIdentifier: 
+  LevelTime: 240
+  ConveyorSpeed: 0.5
+  PackageSpawnInterval: 8.5
+  PackageSpawnSplay: 1
+  PackagePrefabs:
+  - {fileID: 1187417342187724, guid: 4cf9290ab961e3044b38863ae750b9b8, type: 2}
+  - {fileID: 1630084849842518, guid: 24941d12ca4a33148a6375bbc980ee9e, type: 2}
+  PackageColors:
+  - {r: 0.9843138, g: 0.4156863, b: 0.2901961, a: 0}
+  - {r: 0.41960788, g: 0.68235296, b: 0.83921576, a: 0}
+  - {r: 0.8431373, g: 0.50980395, b: 0.627451, a: 0}
+  BombProbability: 0.05
+  MaxBombTimer: 60
+  MinBombTimer: 45
+  ScanFailProbability: 0.1
+  ManualInspectionTime: 3
+  CreatePackageRequestTimeMin: 8
+  CreatePackageRequestTimeMax: 12
+  MaxPackageRequests: 5
+  RequestWaitTime: 30
+  BombDisposeBonus: 30
+  ExpiredPackagePenalty: -5
+  UnwantedPackagePenalty: -2
+  NotInspectedPackagePenalty: -10
+  BombDeliveryPenalty: -20
+  BombExplosionPenalty: -30
+  ExplosionPrefab: {fileID: 1178163705030484, guid: 8f698a6250f38434693e154c29d02716,
+    type: 2}
+  ExplosionForce: 900
+  ExplosionRadius: 200
+  ExplosionUpModifier: 2
+  SuccessScanColor: {r: 0, g: 1, b: 0, a: 1}
+  FailScanColor: {r: 1, g: 0, b: 0, a: 1}
+  SuccessScanAudio:
+  - {fileID: 8300000, guid: 435fb011724f7264b999a19a3d90c8a5, type: 3}
+  - {fileID: 8300000, guid: 081a3b7c30b18cb48aab41afa215f4e3, type: 3}
+  FailScanAudio:
+  - {fileID: 8300000, guid: 0916f50b83d025c4c8734bfacc2d0f80, type: 3}
+  - {fileID: 8300000, guid: 457c1246d1e6b6e47bb76fe85f533a7c, type: 3}
+  DropAudio: {fileID: 8300000, guid: 11d24f7f78288094b900537b86770a7c, type: 3}
+  PickupAudio: {fileID: 8300000, guid: d7824de4c5adef14081c6534d1a3a851, type: 3}

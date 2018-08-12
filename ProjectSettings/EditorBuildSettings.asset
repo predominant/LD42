@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LD42/Scenes/Level03.unity
     guid: 74f45d8c22d34a74abf4ebac26ffbbb6
+  - enabled: 1
+    path: Assets/LD42/Scenes/Level04.unity
+    guid: 2c10cab812628d240ae190fccfd3a499
   m_configObjects: {}

@@ -31,6 +31,7 @@ MonoBehaviour:
   CreatePackageRequestTimeMax: 12
   MaxPackageRequests: 5
   RequestWaitTime: 30
+  BombDisposeBonus: 30
   ExpiredPackagePenalty: -5
   UnwantedPackagePenalty: -2
   NotInspectedPackagePenalty: -10
@@ -38,3 +39,16 @@ MonoBehaviour:
   BombExplosionPenalty: -30
   ExplosionPrefab: {fileID: 1178163705030484, guid: 8f698a6250f38434693e154c29d02716,
     type: 2}
+  ExplosionForce: 900
+  ExplosionRadius: 200
+  ExplosionUpModifier: 2
+  SuccessScanColor: {r: 0, g: 1, b: 0, a: 1}
+  FailScanColor: {r: 1, g: 0, b: 0, a: 1}
+  SuccessScanAudio:
+  - {fileID: 8300000, guid: 435fb011724f7264b999a19a3d90c8a5, type: 3}
+  - {fileID: 8300000, guid: 081a3b7c30b18cb48aab41afa215f4e3, type: 3}
+  FailScanAudio:
+  - {fileID: 8300000, guid: 0916f50b83d025c4c8734bfacc2d0f80, type: 3}
+  - {fileID: 8300000, guid: 457c1246d1e6b6e47bb76fe85f533a7c, type: 3}
+  DropAudio: {fileID: 8300000, guid: 11d24f7f78288094b900537b86770a7c, type: 3}
+  PickupAudio: {fileID: 8300000, guid: d7824de4c5adef14081c6534d1a3a851, type: 3}

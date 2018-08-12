@@ -15,6 +15,8 @@ namespace LD42
 		public bool HasBeenScanned = false;
 		public bool HasBeenInspected = false;
 
+		public bool IsBeingInspected = false;
+
 		public int BombTimer = 0;
 		private float BombTimeStarted = 0f;
 
@@ -36,17 +38,18 @@ namespace LD42
 			this.Color = GameManager.PackageColor();
 		}
 
-		public void Scan(bool manualScan = false)
+		public bool Scan(bool manualScan = false)
 		{
 			if (this.HasBeenScanned && !manualScan)
-				return;
+				return false;
 
 			this.HasBeenScanned = true;
 
 			if (!manualScan && this.DidFailScan())
-				return;
+				return false;
 
 			this.HasBeenInspected = true;
+			this.IsBeingInspected = false;
 
 			// When a package is scanned, identify its color
 			var renderer = this.GetComponentInChildren<MeshRenderer>();
@@ -54,6 +57,7 @@ namespace LD42
 
 			// When a package is scanned, if its a bomb, enable the timer text
 			this.TextMesh.gameObject.SetActive(true);
+			return true;
 		}
 
 		public void SetupBomb()
