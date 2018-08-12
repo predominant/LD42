@@ -29,7 +29,8 @@ namespace LD42
 		{
 			var index = Random.Range(0, this._gameManager.LevelSettings.PackagePrefabs.Count);
 			var prefab = this._gameManager.LevelSettings.PackagePrefabs[index];
-			GameObject.Instantiate(prefab, this.transform.position, this.transform.rotation);
+			var g = GameObject.Instantiate(prefab, this.transform.position, this.transform.rotation);
+			g.name = prefab.name;
 		}
 	}
 }

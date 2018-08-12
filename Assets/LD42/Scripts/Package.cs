@@ -18,6 +18,8 @@ namespace LD42
 		public int BombTimer = 0;
 		private float BombTimeStarted = 0f;
 
+		public bool Delivered = false;
+
 		public Color Color;
 
 		[SerializeField]

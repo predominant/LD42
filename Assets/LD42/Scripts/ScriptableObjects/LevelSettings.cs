@@ -16,5 +16,9 @@ namespace LD42.ScriptableObjects
 		public int MinBombTimer = 45;
 		public float ScanFailProbability = 0.2f;
 		public float ManualInspectionTime = 3f;
+		public float CreatePackageRequestTimeMin = 4f;
+		public float CreatePackageRequestTimeMax = 6f;
+		public int MaxPackageRequests = 6;
+		public int RequestWaitTime = 30;
 	}
 }
