@@ -27,7 +27,6 @@ namespace LD42
             PackageRequest request = null;
             foreach (var r in GameManager.PackageRequests)
             {
-                Debug.LogFormat("Check Package [{0}=={1}]", r.Color, package.Color);
                 if (r.Color == package.Color)
                 {
                     matchedRequest = true;
@@ -36,14 +35,31 @@ namespace LD42
                 }
             }
 
-            if (matchedRequest && request != null)
+            if (package.IsBomb)
             {
-                GameManager.CompletePackageRequest(request);
-                Debug.Log("Score++");
+                GameManager.AdjustScore(GameManager.LevelSettings.BombDeliveryPenalty);
+                GameManager.Stats["BombDelivered"]++;
             }
             else
             {
-                Debug.Log("Score--");
+                if (!package.HasBeenInspected)
+                {
+                    GameManager.AdjustScore(GameManager.LevelSettings.NotInspectedPackagePenalty);
+                    GameManager.Stats["NotInspected"]++;
+                }
+                else
+                {
+                    if (matchedRequest && request != null)
+                    {
+                        GameManager.CompletePackageRequest(request);
+                        GameManager.Stats["Delivered"]++;
+                    }
+                    else
+                    {
+                        GameManager.AdjustScore(GameManager.LevelSettings.UnwantedPackagePenalty);
+                        GameManager.Stats["Unwanted"]++;
+                    }
+                }
             }
 
             GameObject.Destroy(package.gameObject);

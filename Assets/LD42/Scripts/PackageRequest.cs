@@ -7,6 +7,7 @@ namespace LD42
     public class PackageRequest
     {
         private LevelSettings LevelSettings;
+        private GameManager GameManager;
 
         public string Type;
         public int TypeIndex;
@@ -17,6 +18,7 @@ namespace LD42
         public PackageRequest(LevelSettings settings)
         {
             this.LevelSettings = settings;
+            this.GameManager = GameObject.Find("Manager").GetComponent<GameManager>();
 
             // What package type?
             var typeIndex = Random.Range(0, this.LevelSettings.PackagePrefabs.Count);
@@ -27,6 +29,20 @@ namespace LD42
             this.Color = this.LevelSettings.PackageColors[colorIndex];
 
             this.StartTime = Time.time;
+        }
+
+        public int RemainingTime()
+        {
+            var time = (int)Mathf.Clamp(
+                Mathf.CeilToInt(this.StartTime + LevelSettings.RequestWaitTime - Time.time),
+                0,
+                LevelSettings.RequestWaitTime
+            );
+            if (time <= 0f)
+            {
+                GameManager.ExpirePackageRequest(this);
+            }
+            return time;
         }
     }
 }

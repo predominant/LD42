@@ -111,7 +111,8 @@ namespace LD42
 				
 				p.GetComponent<Rigidbody>().AddExplosionForce(800f, this.transform.position, 200f);
 			}
-
+			GameManager.AdjustScore(GameManager.LevelSettings.BombExplosionPenalty);
+			GameManager.Stats["BombExploded"]++;
 		}
 
 		private bool DidFailScan()

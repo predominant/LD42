@@ -9,7 +9,6 @@ namespace LD42
 	public class PackageRequestUI : MonoBehaviour
 	{
 		private static GameManager GameManager;
-		private int _waitTime;
 
 		public TextMeshProUGUI CountdownText;
 		public PackageRequest Request;
@@ -18,7 +17,6 @@ namespace LD42
 		private void Start()
 		{
 			GameManager = GameObject.Find("Manager").GetComponent<GameManager>();
-			this._waitTime = GameManager.LevelSettings.RequestWaitTime;
 		}
 
 		public void Setup(PackageRequest r)
@@ -34,10 +32,7 @@ namespace LD42
 		{
 			while (true)
 			{
-				var remaining = Mathf.Clamp(
-					Mathf.FloorToInt(this._waitTime + this.Request.StartTime - Time.time),
-					0,
-					this._waitTime);
+				var remaining = this.Request.RemainingTime();
 				this.CountdownText.text = remaining.ToString();
 				yield return new WaitForSecondsRealtime(0.25f);
 			}
