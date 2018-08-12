@@ -57,11 +57,14 @@ namespace LD42
 
         private void Drop()
         {
-            if (!this._carrying || this.TargetPackage == null)
+            if (!this._carrying)
                 return;
             
             this._carrying = false;
 
+            if (this.TargetPackage == null)
+                return;
+                
             this.TargetPackage.transform.parent = null;
             this.TargetPackage.GetComponent<Rigidbody>().isKinematic = false;
             this.TargetPackage.GetComponent<Collider>().enabled = true;

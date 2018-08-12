@@ -35,3 +35,6 @@ MonoBehaviour:
   UnwantedPackagePenalty: -2
   NotInspectedPackagePenalty: -10
   BombDeliveryPenalty: -20
+  BombExplosionPenalty: -30
+  ExplosionPrefab: {fileID: 1178163705030484, guid: 8f698a6250f38434693e154c29d02716,
+    type: 2}

@@ -9,6 +9,7 @@ namespace LD42
     {
         public TextMeshProUGUI TotalScoreText;
         public TextMeshProUGUI DeliveredText;
+        public TextMeshProUGUI BombDisposedText;
         public TextMeshProUGUI FailedText;
         public TextMeshProUGUI BombExplodedText;
         public TextMeshProUGUI BombDeliveredText;
@@ -30,6 +31,7 @@ namespace LD42
             GameManager gm = GameObject.Find("Manager").GetComponent<GameManager>();
             this.TotalScoreText.text = gm.Score.ToString();
             this.DeliveredText.text = gm.Stats["Delivered"].ToString();
+            this.BombDisposedText.text = gm.Stats["BombDisposed"].ToString();
             this.FailedText.text = gm.Stats["Failed"].ToString();
             this.BombExplodedText.text = gm.Stats["BombExploded"].ToString();
             this.BombDeliveredText.text = gm.Stats["BombDelivered"].ToString();

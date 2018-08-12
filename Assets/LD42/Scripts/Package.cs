@@ -20,6 +20,8 @@ namespace LD42
 
 		public bool Delivered = false;
 
+		public bool Trashed = false;
+
 		public Color Color;
 
 		[SerializeField]
@@ -103,13 +105,26 @@ namespace LD42
 			// g.transform.position = this.transform.position;
 			// g.transform.localScale = Vector3.one * 5f;
 
+			if (GameManager.LevelSettings.ExplosionPrefab != null)
+			{
+				var ex = GameObject.Instantiate(
+					GameManager.LevelSettings.ExplosionPrefab,
+					this.transform.position,
+					Quaternion.identity);
+				GameObject.Destroy(ex, 2f);
+			}
+
 			var packages = GameObject.FindObjectsOfType<Package>();
 			foreach (var p in packages)
 			{
 				if (p == this)
 					continue;
 				
-				p.GetComponent<Rigidbody>().AddExplosionForce(800f, this.transform.position, 200f);
+				p.GetComponent<Rigidbody>().AddExplosionForce(
+					GameManager.LevelSettings.ExplosionForce,
+					this.transform.position,
+					GameManager.LevelSettings.ExplosionRadius,
+					GameManager.LevelSettings.ExplosionUpModifier);
 			}
 			GameManager.AdjustScore(GameManager.LevelSettings.BombExplosionPenalty);
 			GameManager.Stats["BombExploded"]++;

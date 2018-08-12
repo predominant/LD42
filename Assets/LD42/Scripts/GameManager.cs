@@ -30,6 +30,7 @@ namespace LD42
 			{"BombDelivered", 0},
 			{"Unwanted", 0},
 			{"NotInspected", 0},
+			{"BombDisposed", 0},
 		};
 
 		public int Score = 0;

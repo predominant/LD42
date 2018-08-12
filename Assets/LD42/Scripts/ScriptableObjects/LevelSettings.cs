@@ -6,7 +6,7 @@ namespace LD42.ScriptableObjects
 	[CreateAssetMenu(menuName = "LD42/LevelSettings")]
 	public class LevelSettings : ScriptableObject
 	{
-		public int LevelTime = 4;
+		public int LevelTime = 240;
 		public float ConveyorSpeed = 1f;
 		public float PackageSpawnInterval = 5f;
 		public float PackageSpawnSplay = 1f;
@@ -22,10 +22,20 @@ namespace LD42.ScriptableObjects
 		public int MaxPackageRequests = 6;
 		public int RequestWaitTime = 30;
 
+		[Header("Bonuses")]
+		public int BombDisposeBonus = 30;
+
+		[Header("Penalities")]
 		public int ExpiredPackagePenalty = -5;
 		public int UnwantedPackagePenalty = -2;
 		public int NotInspectedPackagePenalty = -10;
 		public int BombDeliveryPenalty = -20;
 		public int BombExplosionPenalty = -30;
+
+		[Header("Explosions")]
+		public GameObject ExplosionPrefab;
+		public float ExplosionForce = 900f;
+		public float ExplosionRadius = 200f;
+		public float ExplosionUpModifier = 2f;
 	}
 }

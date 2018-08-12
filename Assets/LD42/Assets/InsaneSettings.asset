@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e870a37be7737e847b4ce4aaea42dc55, type: 3}
   m_Name: InsaneSettings
   m_EditorClassIdentifier: 
+  LevelTime: 240
   ConveyorSpeed: 0.5
   PackageSpawnInterval: 1
   PackageSpawnSplay: 0.5
@@ -24,8 +25,19 @@ MonoBehaviour:
   - {r: 0.9843138, g: 0.4156863, b: 0.2901961, a: 0}
   - {r: 0.41960788, g: 0.68235296, b: 0.83921576, a: 0}
   - {r: 0.8431373, g: 0.50980395, b: 0.627451, a: 0}
-  BombProbability: 0.1
+  BombProbability: 0.9
   MaxBombTimer: 60
   MinBombTimer: 45
   ScanFailProbability: 0.2
   ManualInspectionTime: 3
+  CreatePackageRequestTimeMin: 4
+  CreatePackageRequestTimeMax: 6
+  MaxPackageRequests: 6
+  RequestWaitTime: 30
+  ExpiredPackagePenalty: -5
+  UnwantedPackagePenalty: -2
+  NotInspectedPackagePenalty: -10
+  BombDeliveryPenalty: -20
+  BombExplosionPenalty: -30
+  ExplosionPrefab: {fileID: 1178163705030484, guid: 8f698a6250f38434693e154c29d02716,
+    type: 2}
